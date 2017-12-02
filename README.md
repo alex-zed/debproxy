@@ -3,10 +3,9 @@ docker-acestream
 
 Debian based docker image for acestream.
 
+Search API allows to search content in the Ace Stream P2P Network.
 
-Рекомендованные опции запуска AceStream
-
-acestreamengine --client-console --core-sandbox-max-peers 30 --live-buffer 500 --upload-limit 1000 --live-cache-type memory
+Oпции запуска AceStream
 
 http://wiki.acestream.org/wiki/index.php/Streaming#.D0.9A.D0.BE.D0.BC.D0.B0.D0.BD.D0.B4.D0.B0_acestreamengine
 
