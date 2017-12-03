@@ -35,6 +35,7 @@ ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD supervisor/supervisord.conf /etc/supervisor/supervisord.conf
 ADD ace.hls_parser.sh /mnt/media/playlists/ace.hls_parser.sh
 ADD torrc /etc/tor/torrc
+ADD libssl.so.1.0.0 /usr/share/acestream/lib/libssl.so.1.0.0
 RUN chmod +x /mnt/media/playlists/ace.hls_parser.sh
 RUN /mnt/media/playlists/ace.hls_parser.sh
 ADD start.sh /usr/bin/start.sh
