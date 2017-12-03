@@ -1,5 +1,5 @@
 # Set base to Debian jessie
-FROM debian:jessie
+FROM debian:9
 
 # install base packages
 ENV DEBIAN_FRONTEND=noninteractive
@@ -13,6 +13,7 @@ RUN apt-get update -y && \
       jq \
       tor \
       net-tools \
+      libxslt1.1 \
       cron \
       nano \
       mc \
