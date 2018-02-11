@@ -32,7 +32,7 @@ RUN apt-get update -y && \
     wget -o - http://dl.acestream.org/linux/acestream_3.1.16_debian_8.7_x86_64.tar.gz && \
     tar --show-transformed-names --transform='s/acestream_3.1.16_debian_8.7_x86_64/acestream/' -vzxf acestream_3.1.16_debian_8.7_x86_64.tar.gz && \
     mv acestream /usr/share && \
-    rm -rf /tmp/*
+    rm -rf /tmp/* && \
 # install aceproxy
     wget -o - https://github.com/pepsik-kiev/HTTPAceProxy/archive/master.zip -O aceproxy.zip && \
     unzip aceproxy.zip -d /opt/tv && \
