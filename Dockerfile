@@ -17,12 +17,15 @@ RUN apt-get update -y && \
       cron \
       nano \
       mc \
+      python-pip \
       python-apsw \
       python-m2crypto \
       supervisor \
       unzip \
       wget \
     && \
+    pip install --upgrade pip && \
+    pip install --upgrade gevent psutil && \
     mkdir -p /mnt/media/playlists && \
 # install acestream-engine
     wget  -o - http://dl.acestream.org/linux/acestream_3.1.16_debian_8.7_x86_64.tar.gz && \
