@@ -29,7 +29,6 @@ RUN apt-get update -y && \
 # add services
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD supervisor/supervisord.conf /etc/supervisor/supervisord.conf
-ADD ace.hls_parser.sh /mnt/media/playlists/ace.hls_parser.sh
 ADD libssl.so.1.0.0 /usr/share/acestream/lib/libssl.so.1.0.0
 ADD libcrypto.so.1.0.0 /usr/share/acestream/lib/libcrypto.so.1.0.0
 ADD start.sh /usr/bin/start.sh
