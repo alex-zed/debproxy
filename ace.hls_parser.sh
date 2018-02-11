@@ -4,7 +4,7 @@ path=`dirname $0`
 parser="/usr/bin/jq"
 filepath="/mnt/media/playlists"
 
-playlist_url="http://pomoyka.win/trash/ttv-list/ace.json"
+playlist_url="http://pomoyka.lib.emergate.net/trash/ttv-list/ace.json"
 json="$filepath/m3u/ace.json"
 outdir="$filepath/m3u"
 
