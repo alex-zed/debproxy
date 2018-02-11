@@ -35,7 +35,7 @@ RUN apt-get update -y && \
     rm -rf /tmp/* && \
 # install aceproxy
     wget -o - https://github.com/pepsik-kiev/HTTPAceProxy/archive/master.zip -O aceproxy.zip && \
-    unzip aceproxy.zip -d /opt/tv && \
+    unzip aceproxy.zip -d /opt/tv
 
 # add services
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
