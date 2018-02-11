@@ -6,12 +6,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /tmp
 
 RUN apt-get update -y && \
-    apt-get install -y apt-utils && \
-    apt-get install -y \
+      apt-get install -y \
       ca-certificates \
-      libpython2.7 \
+      python2.7 \
       jq \
-      ffmpeg \
       net-tools \
       libxslt1.1 \
       cron \
@@ -24,18 +22,12 @@ RUN apt-get update -y && \
       unzip \
       wget \
     && \
-    pip install --upgrade pip && \
-    pip install --upgrade gevent psutil && \
-    mkdir -p /mnt/media/playlists && \
-    mkdir -p /opt/tv && \
+     mkdir -p /mnt/media/playlists && \
 # install acestream-engine
     wget -o - http://dl.acestream.org/linux/acestream_3.1.16_debian_8.7_x86_64.tar.gz && \
     tar --show-transformed-names --transform='s/acestream_3.1.16_debian_8.7_x86_64/acestream/' -vzxf acestream_3.1.16_debian_8.7_x86_64.tar.gz && \
     mv acestream /usr/share && \
-    rm -rf /tmp/* && \
-# install aceproxy
-    wget -o - https://github.com/pepsik-kiev/HTTPAceProxy/archive/master.zip -O aceproxy.zip && \
-    unzip aceproxy.zip -d /opt/tv
+    rm -rf /tmp/* 
 
 # add services
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
