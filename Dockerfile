@@ -29,7 +29,7 @@ RUN apt-get update -y && \
     mkdir -p /mnt/media/playlists && \
     mkdir -p /opt/tv && \
 # install acestream-engine
-    wget  -o - http://dl.acestream.org/linux/acestream_3.1.16_debian_8.7_x86_64.tar.gz && \
+    wget -o - http://dl.acestream.org/linux/acestream_3.1.16_debian_8.7_x86_64.tar.gz && \
     tar --show-transformed-names --transform='s/acestream_3.1.16_debian_8.7_x86_64/acestream/' -vzxf acestream_3.1.16_debian_8.7_x86_64.tar.gz && \
     mv acestream /usr/share && \
     rm -rf /tmp/*
