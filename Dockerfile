@@ -9,13 +9,10 @@ RUN apt-get update -y && \
       apt-get install -y \
       ca-certificates \
       python2.7 \
-      jq \
       net-tools \
-      libxslt1.1 \
       cron \
       nano \
       mc \
-      python-pip \
       python-apsw \
       python-m2crypto \
       supervisor \
@@ -35,8 +32,6 @@ ADD supervisor/supervisord.conf /etc/supervisor/supervisord.conf
 ADD ace.hls_parser.sh /mnt/media/playlists/ace.hls_parser.sh
 ADD libssl.so.1.0.0 /usr/share/acestream/lib/libssl.so.1.0.0
 ADD libcrypto.so.1.0.0 /usr/share/acestream/lib/libcrypto.so.1.0.0
-RUN chmod +x /mnt/media/playlists/ace.hls_parser.sh
-RUN /mnt/media/playlists/ace.hls_parser.sh
 ADD start.sh /usr/bin/start.sh
 RUN chmod +x /usr/bin/start.sh
 
