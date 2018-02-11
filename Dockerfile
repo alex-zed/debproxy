@@ -8,7 +8,7 @@ WORKDIR /tmp
 RUN apt-get update -y && \
       apt-get install -y \
       ca-certificates \
-      python2.7 \
+      libpython2.7 \
       net-tools \
       cron \
       nano \
@@ -35,7 +35,7 @@ ADD libcrypto.so.1.0.0 /usr/share/acestream/lib/libcrypto.so.1.0.0
 ADD start.sh /usr/bin/start.sh
 RUN chmod +x /usr/bin/start.sh
 
-RUN rm -rf /tmp/*
+RUN rm -rf /tmp/* /usr/share/acestream/data/plugins/*
 
 EXPOSE 8621 62062 9944 9903 6878
 VOLUME /mnt/media/playlists
