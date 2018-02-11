@@ -12,7 +12,7 @@ header="#EXTM3U"
 newline="ZFZFaZZZ"
 informational="informational"
 
-url_prefix="http://127.0.0.1:6878/ace/manifest.m3u8?id="
+url_prefix="http://192.168.178.92:6878/ace/getstream?id="
 url_postfix=""
 
 mkdir -p $filepath >> /dev/null 2>&1
