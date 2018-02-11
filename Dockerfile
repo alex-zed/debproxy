@@ -6,6 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /tmp
 
 RUN apt-get update -y && \
+      apt-get install -y apt-utils && \
       apt-get install -y \
       ca-certificates \
       libpython2.7 \
