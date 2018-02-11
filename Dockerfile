@@ -11,7 +11,7 @@ RUN apt-get update -y && \
       ca-certificates \
       libpython2.7 \
       jq \
-      tor \
+      ffmpeg \
       net-tools \
       libxslt1.1 \
       cron \
@@ -28,13 +28,12 @@ RUN apt-get update -y && \
     wget  -o - http://dl.acestream.org/linux/acestream_3.1.16_debian_8.7_x86_64.tar.gz && \
     tar --show-transformed-names --transform='s/acestream_3.1.16_debian_8.7_x86_64/acestream/' -vzxf acestream_3.1.16_debian_8.7_x86_64.tar.gz && \
     mv acestream /usr/share && \
-    rm -rf /tmp/* /etc/tor/torrc
+    rm -rf /tmp/*
 
 # add services
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD supervisor/supervisord.conf /etc/supervisor/supervisord.conf
 ADD ace.hls_parser.sh /mnt/media/playlists/ace.hls_parser.sh
-ADD torrc /etc/tor/torrc
 ADD libssl.so.1.0.0 /usr/share/acestream/lib/libssl.so.1.0.0
 ADD libcrypto.so.1.0.0 /usr/share/acestream/lib/libcrypto.so.1.0.0
 RUN chmod +x /mnt/media/playlists/ace.hls_parser.sh
