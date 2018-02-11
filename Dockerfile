@@ -8,7 +8,7 @@ WORKDIR /tmp
 RUN apt-get update -y && \
       apt-get install -y \
       ca-certificates \
-      python-setuptools \
+      libpython2.7 \
       net-tools \
       cron \
       nano \
