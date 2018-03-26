@@ -10,6 +10,8 @@ RUN apt-get update -y && \
       apt-get install -y \
       ca-certificates \
       libpython2.7 \
+      libxslt.so.1 \
+      python-m2ext \
       net-tools \
       cron \
       nano \
