@@ -1,0 +1,9 @@
+[Unit]
+Description=acestream
+After = remote-fs.target network-online.target
+
+[Service]
+ExecStart=/opt/acestream/start.engine
+
+[Install]
+WantedBy=multi-user.target
