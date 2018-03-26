@@ -3,7 +3,7 @@ Description=acestream
 After = remote-fs.target network-online.target
 
 [Service]
-ExecStart=/opt/acestream/start.engine
+ExecStart=/opt/acestream/start.engine /opt/acestream/start-engine --client-console --allow_remote_access --bind-all --cache-dir /tmp/state/.ACEStream --live-cache-type memory --live-cache-size 209715200 --state-dir /tmp/state/.ACEStream --log-file /tmp/acestream.log --access-token 69696969 --core-sandbox-max-peers 5 --live-buffer 10 --service-remote-access --stats-report-peers
 
 [Install]
 WantedBy=multi-user.target
