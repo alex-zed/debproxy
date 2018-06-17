@@ -37,4 +37,4 @@ RUN chmod +x /opt/acestream/acestream.stop
 EXPOSE 8621 62062 6878
 
 WORKDIR /
-ENTRYPOINT ["/usr/bin/start.sh"]
+
