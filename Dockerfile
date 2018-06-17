@@ -2,45 +2,41 @@
 FROM debian:stable-slim
 
 # install base packages
-ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive LANG=ru_RU.UTF-8 LANGUAGE=ru_RU:ru LC_ALL=ru_RU.UTF-8
 WORKDIR /tmp
 
 RUN apt-get update -y && \
       apt-get install -y apt-utils && \
       apt-get install -y \
-      ca-certificates \
-      libpython2.7 \
-      libxslt1.1 \
-      python-m2ext \
-      net-tools \
-      cron \
       nano \
+      tzdata \
+      locales \
+      htop \
       mc \
-      python-apsw \
-      python-m2crypto \
-      supervisor \
-      unzip \
-      wget \
-    && \
-     mkdir -p /mnt/media/playlists && \
+      wget && \
+     
 # install acestream-engine
-    wget -o - http://dl.acestream.org/linux/acestream_3.1.16_debian_8.7_x86_64.tar.gz && \
-    tar --show-transformed-names --transform='s/acestream_3.1.16_debian_8.7_x86_64/acestream/' -vzxf acestream_3.1.16_debian_8.7_x86_64.tar.gz && \
-    mv acestream /usr/share && \
-    rm -rf /tmp/* 
+   mkdir -p /opt/acestream/ && \
+   wget -o - https://sybdata.de/files/public-docs/acestream_3.1.31_webUI_x86.tar.gz && \
+   tar -zxvf acestream_3.1.31_webUI_x86.tar.gz && \
+   mv androidfs /opt/acestream/androidfs && \
+   find /opt/acestream/androidfs/system -type d -exec chmod 755 {} \; && \
+   find /opt/acestream/androidfs/system -type f -exec chmod 644 {} \; && \
+   chmod 755 /opt/acestream/androidfs/system/bin/* /opt/acestream/androidfs/acestream.engine/python/bin/python && \
+# set /tmp on tmpfs
+   echo "tmpfs /tmp tmpfs rw,nosuid,nodev 0 0" | tee -a /etc/fstab && \
+   rm -rf /tmp/* 
 
 # add services
-ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-ADD supervisor/supervisord.conf /etc/supervisor/supervisord.conf
-ADD libssl.so.1.0.0 /usr/share/acestream/lib/libssl.so.1.0.0
-ADD libcrypto.so.1.0.0 /usr/share/acestream/lib/libcrypto.so.1.0.0
+ADD acestream.start /opt/acestream/acestream.start
+ADD acestream.stop /opt/acestream/acestream.stop
+ADD acestream.conf /opt/acestream/androidfs/acestream.engine/acestream.conf
 ADD start.sh /usr/bin/start.sh
 RUN chmod +x /usr/bin/start.sh
+RUN chmod +x /opt/acestream/acestream.start
+RUN chmod +x /opt/acestream/acestream.stop
 
-RUN rm -rf /tmp/* /usr/share/acestream/data/plugins/*
-
-EXPOSE 8621 62062 9944 9903 6878
-VOLUME /mnt/media/playlists
+EXPOSE 8621 62062 6878
 
 WORKDIR /
 ENTRYPOINT ["/usr/bin/start.sh"]
