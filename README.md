@@ -15,7 +15,7 @@ docker run \
 --net=host \
 --name=ace86 \
 -e TZ=Europe/Berlin \
-sybdata/ace86u18 bash -c "./start.sh 600"
+sybdata/debproxy bash -c "/usr/bin/start.sh 600"
 ```
  #### где:
 
