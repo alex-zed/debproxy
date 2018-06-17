@@ -22,7 +22,7 @@ sybdata/ace86u18 bash -c "./start.sh 600"
 * 600 - Время очистки кеша acestream в секундах
 * TZ='timezone'
 
-![918d1](https://user-images.githubusercontent.com/24189833/41502186-9be8d11c-71b4-11e8-8777-184d3f20589c.png)
+
 
 
 
