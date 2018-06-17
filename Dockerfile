@@ -23,8 +23,6 @@ RUN apt-get update -y && \
    find /opt/acestream/androidfs/system -type d -exec chmod 755 {} \; && \
    find /opt/acestream/androidfs/system -type f -exec chmod 644 {} \; && \
    chmod 755 /opt/acestream/androidfs/system/bin/* /opt/acestream/androidfs/acestream.engine/python/bin/python && \
-# set /tmp on tmpfs
-   echo "tmpfs /tmp tmpfs rw,nosuid,nodev 0 0" | tee -a /etc/fstab && \
    rm -rf /tmp/* 
 
 # add services
