@@ -6,15 +6,16 @@ ENV DEBIAN_FRONTEND=noninteractive LANG=ru_RU.UTF-8 LANGUAGE=ru_RU:ru LC_ALL=ru_
 WORKDIR /tmp
 
 RUN apt-get update -y && \
-      apt-get install -y apt-utils && \
-      apt-get install -y \
-      nano \
-      tzdata \
-      locales \
-      htop \
-      mc \
-      wget && \
-     
+    apt-get install -y apt-utils && \
+    apt-get install -y \
+    nano \
+    tzdata \
+    locales \
+    htop \
+    mc \
+    wget && \
+# Set the locale
+   locale-gen ru_RU.UTF-8 && \    
 # install acestream-engine
    mkdir -p /opt/acestream/ && \
    wget -o - https://sybdata.de/files/public-docs/acestream_3.1.31_webUI_x86.tar.gz && \
