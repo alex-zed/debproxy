@@ -2,7 +2,7 @@
 FROM debian:stable-slim
 
 # install base packages
-ENV DEBIAN_FRONTEND=noninteractive LANG=ru_RU.UTF-8 LANGUAGE=ru_RU:ru LC_ALL=ru_RU.UTF-8
+ENV DEBIAN_FRONTEND=noninteractive LANG=ru_RU.UTF-8 LANGUAGE=ru_RU:ru
 WORKDIR /tmp
 
 RUN apt-get update -y && \
