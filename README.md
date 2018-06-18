@@ -21,6 +21,9 @@ sybdata/debproxy bash -c "/usr/bin/start.sh 600"
 
 * 600 - Время очистки кеша acestream в секундах
 * TZ='timezone'
+
+![918f1a](https://user-images.githubusercontent.com/24189833/41553984-b0c70dd0-7333-11e8-8091-1303fde6e2c3.png)
+
 ![918f](https://user-images.githubusercontent.com/24189833/41535293-0f2c632a-7302-11e8-8e63-fc7f507c6c5f.png)
 
 
