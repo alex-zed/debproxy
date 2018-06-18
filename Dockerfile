@@ -2,7 +2,7 @@
 FROM debian:stable-slim
 
 # install base packages
-ENV DEBIAN_FRONTEND=noninteractive LANG=ru_RU.UTF-8 LANGUAGE=ru_RU:ru
+ENV DEBIAN_FRONTEND=noninteractive LANG=ru_RU.UTF-8 LANGUAGE=ru_RU:ru LC_ALL=ru_RU.UTF-8
 WORKDIR /tmp
 
 RUN apt-get update -y && \
@@ -15,7 +15,8 @@ RUN apt-get update -y && \
     mc \
     wget && \
 # Set the locale
-   locale-gen ru_RU.UTF-8 && \    
+   locale-gen ru_RU.UTF-8 && \
+   dpkg-reconfigure locales && \
 # install acestream-engine
    mkdir -p /opt/acestream/ && \
    wget -o - https://sybdata.de/files/public-docs/acestream_3.1.31_webUI_x86.tar.gz && \
