@@ -1,6 +1,6 @@
 [Unit]
 Description=AceProxy
-After=network.target
+After=acestream.service
 
 [Service]
 User=aceproxy
