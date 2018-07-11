@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 User=aceproxy
-ExecStart=/opt/HTTPAceProxy-master/acehttp.py
+ExecStart=/usr/bin/python /opt/HTTPAceProxy-master/acehttp.py
 ExecReload=/bin/kill -HUP $MAINPID
 
 [Install]
